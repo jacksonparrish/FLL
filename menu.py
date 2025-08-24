@@ -51,12 +51,48 @@ def main_menu(hub: PrimeHub, num_items: int, item: int = 1) -> int:
     return item
 
 
+def startup_checks(hub):
+    print('charger status', hub.charger.status())
+    print('voltage', hub.battery.voltage())
+    print('current', hub.battery.current())
+
+    # Check charging status.  We don't want to show the menu and allow programs
+    # to run while plugged in.
+    status = hub.charger.status()
+    while status != 0:
+        if status == 1:  # Charging
+            icon = Icon.PAUSE
+        elif status == 2:  # Charged
+            icon = Icon.TRUE
+        elif status == 3:  # Error
+            icon = Icon.SAD
+
+        # So long as we're plugged in, keep showing the icon.
+        hub.display.icon(icon)
+        wait(10)
+        status = hub.charger.status()
+
+    # If the voltage is low, show a warning animation, but return and let the
+    # user decide if they want to use it.
+    if hub.battery.voltage() < 8000:
+        print('Low voltage!  Please charge me!')
+        for side in [Side.TOP, Side.RIGHT, Side.BOTTOM, Side.LEFT, Side.TOP]:
+            hub.display.orientation(side)
+            hub.display.icon(Icon.SAD)
+            wait(500)
+        wait(500)
+
+
 if __name__ == '__main__':
     # A simple test program for the menu.
-    print('Running menu demo...')
     hub = PrimeHub()
+
+    print('Running menu demo...')
     hub.display.icon(Icon.CIRCLE)
     wait(3000)
+
+    startup_checks(hub)
+
     chosen = 1
     while True:
         chosen = main_menu(hub, 9, chosen)
