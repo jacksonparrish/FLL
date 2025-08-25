@@ -49,7 +49,7 @@ while True:
 """
 
 from pybricks.hubs import PrimeHub
-from pybricks.parameters import Button, Icon
+from pybricks.parameters import Button, Icon, Side
 from pybricks.tools import wait
 
 
@@ -60,7 +60,7 @@ FULL_VOLTAGE_THRESHOLD = 8300
 LOW_VOLTAGE_THRESHOLD = 8000
 
 
-def wait_for_button(hub: PrimeHub) -> Set[Button]:
+def wait_for_button(hub: PrimeHub) -> set[Button]:
     """Wait for a button to be pressed, then return the buttons.
 
     Returns a `Set` of `Button` values when the buttons are released.
