@@ -7,7 +7,8 @@ startup checks to make it easier for kids to get started coding missions.
 
 The startup checks ensure they don't start missions while plugged in, and show
 battery status while charging.  If the battery level is too low on startup, a
-warning animation will be shown.  Please charge to avoid inaccuracies.
+warning animation will be shown.  Please charge to avoid inaccuracies caused by
+low torque.
 
 Sample usage:
 
