@@ -53,6 +53,13 @@ from pybricks.parameters import Button, Icon
 from pybricks.tools import wait
 
 
+# These are both in mV (millivolts).
+# 8.3V is fully charged, even if the charger would continue topping up.
+FULL_VOLTAGE_THRESHOLD = 8300
+# 8.0V is low.  Below this, we do not get enough torque for consistent results.
+LOW_VOLTAGE_THRESHOLD = 8000
+
+
 def wait_for_button(hub: PrimeHub) -> Set[Button]:
     """Wait for a button to be pressed, then return the buttons.
 
@@ -145,6 +152,19 @@ def main_menu(hub: PrimeHub, num_items: int, item: int = 1) -> int:
     return item
 
 
+def _charger_status_name(status: int) -> str:
+    if status == 0:
+        return 'unplugged'
+    elif status == 1:
+        return 'charging'
+    elif status == 2:
+        return 'charged'
+    elif status == 3:
+        return 'error'
+    else:
+        return 'unknown ({})'.format(status)
+
+
 def startup_checks(hub):
     """Run startup checks to make sure it's safe to run.
 
@@ -157,16 +177,19 @@ def startup_checks(hub):
     Call this before your menu loop.  (`while True: main_menu(...)`)
     """
 
-    print('charger status', hub.charger.status())
-    print('voltage', hub.battery.voltage())
-    print('current', hub.battery.current())
-
     # Check charging status.  We don't want to show the menu and allow programs
     # to run while plugged in.
     status = hub.charger.status()
-    while status != 0:
+    voltage = hub.battery.voltage()
+    print('Battery status', _charger_status_name(status),
+          'voltage', voltage, 'mV')
+
+    while status != 0:  # Not unplugged
         if status == 1:  # Charging
-            icon = Icon.PAUSE
+            if voltage < FULL_VOLTAGE_THRESHOLD:
+                icon = Icon.PAUSE
+            else:
+                icon = Icon.TRUE
         elif status == 2:  # Charged
             icon = Icon.TRUE
         elif status == 3:  # Error
@@ -174,12 +197,15 @@ def startup_checks(hub):
 
         # So long as we're plugged in, keep showing the icon.
         hub.display.icon(icon)
-        wait(10)
+        wait(1000)
         status = hub.charger.status()
+        voltage = hub.battery.voltage()
+        print('Battery status', _charger_status_name(status),
+              'voltage', voltage, 'mV')
 
     # If the voltage is low, show a warning animation, but return and let the
     # user decide if they want to use it.
-    if hub.battery.voltage() < 8000:
+    if hub.battery.voltage() < LOW_VOLTAGE_THRESHOLD:
         print('Low voltage!  Please charge me!')
         for side in [Side.TOP, Side.RIGHT, Side.BOTTOM, Side.LEFT, Side.TOP]:
             hub.display.orientation(side)
