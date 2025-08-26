@@ -126,7 +126,10 @@ def main_menu(hub: PrimeHub, num_items: int, item: int = 1) -> int:
 
     while True:
         # Show the number of the selected item.
-        hub.display.number(item)
+        if item < 10:
+            hub.display.char(str(item))
+        else:
+            hub.display.number(item)
 
         # Wait for buttons to be pressed.
         pressed = wait_for_button(hub)
@@ -226,6 +229,6 @@ if __name__ == '__main__':
 
     chosen = 1
     while True:
-        chosen = main_menu(hub, 9, chosen)
+        chosen = main_menu(hub, 12, chosen)
         hub.display.icon(Icon.HEART)
         wait(3000)
