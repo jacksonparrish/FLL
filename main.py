@@ -27,7 +27,14 @@ def mission2():
     drive.turn(360)
 
 def mission3():
-    print("mEdORkY")
+    drive.straight(600)
+    drive.turn(-45)
+    drive.straight(300)
+    drive.straight(70)
+    drive.turn(-70)
+    drive.straight(70)
+    drive.turn(-110)
+    drive.straight(790)
 
 mission = 1
 
