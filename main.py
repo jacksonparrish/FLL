@@ -12,6 +12,9 @@ motor_left = Motor(Port.B, Direction.COUNTERCLOCKWISE)
 
 motor_right = Motor(Port.F)
 
+tool_left = Motor(Port.A)
+tool_right = Motor(Port.C)
+
 #Robot drove 998 mm out of the 1000 it was supposed to.
 wheel_diameter = 88 * 998 / 1000
 axel_track = 112
@@ -36,11 +39,16 @@ def mission3():
     drive.turn(-110)
     drive.straight(790)
 
+def mission5():
+    tool_left.run(180)
+    tool_right.run(180)
+
+
 mission = 1
 
 while True:
     # Show the menu and wait for a choice.
-    mission = main_menu(hub, num_items = 3, item = mission)
+    mission = main_menu(hub, num_items = 5, item = mission)
 
     # Run the chosen mission and the loop back to the menu.
     if mission == 1:
@@ -49,3 +57,5 @@ while True:
         mission2()
     elif mission == 3:
         mission3()
+    elif mission == 5:
+        mission5()
