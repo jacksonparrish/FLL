@@ -17,9 +17,11 @@ tool_right = Motor(Port.C)
 
 #Robot drove 998 mm out of the 1000 it was supposed to.
 wheel_diameter = 88 * 998 / 1000
-axel_track = 112
+#Measured 112 calibrated to this
+axel_track = 113.55
 
 drive = DriveBase(motor_left, motor_right, wheel_diameter,axel_track)
+drive.settings(200, 750, 150, 150)
 
 startup_checks(hub)
 
