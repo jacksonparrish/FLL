@@ -29,8 +29,30 @@ def settings(straight_speed=800, straight_acceleration=(300, 700),
 settings()
 startup_checks(hub)
 
+#starts at red zone on 1 black line and 3 squares
 def run1():
-    drive.straight(1000)
+    drive.straight(610)
+    drive.arc(130, 90)
+    drive.straight(280)
+    drive.turn(-90)
+    # TODO: buid lift tool
+    drive.turn(77.5)
+    drive.straight(330)
+    drive.turn(90)
+    drive.straight(220)
+    # TODO: make code to push the seal statue
+    drive.turn(40)
+    drive.straight(100)
+    drive.turn(40)
+    drive.straight(80)
+    drive.turn(55)
+    return
+    drive.turn(-55)
+    drive.straight(300)
+    drive.turn(-90)
+    settings(straight_acceleration=(2000,2000), straight_speed=300)
+    drive.straight(900)
+    settings()
 
 def run2():
     drive.turn(360)
