@@ -29,33 +29,34 @@ def settings(straight_speed=800, straight_acceleration=(300, 700),
 settings()
 startup_checks(hub)
 
-#starts at red zone on 1 black line and 3 squares
+#right side of robot is one thick black line and three
+#squares away from the curved line in the red zone facing mission one
+#moves to minecart then statue
 def run1():
+    #gets to the minecart lift (AKA mission 3)
     drive.straight(610)
     drive.arc(130, 90)
     drive.straight(280)
     drive.turn(-90)
-    # TODO: buid lift tool
-    drive.turn(77.5)
+    # TODO: build lift tool
+
+    #gets to the seal statue (AKA mission 13)
+    drive.turn(76.8)
     drive.straight(330)
     drive.turn(90)
-    drive.straight(220)
+    drive.straight(530)
+    drive.turn(133.5)
+    drive.straight(228)
     # TODO: make code to push the seal statue
-    drive.turn(40)
-    drive.straight(100)
-    drive.turn(40)
-    drive.straight(80)
-    drive.turn(55)
-    return
-    drive.turn(-55)
-    drive.straight(300)
-    drive.turn(-90)
-    settings(straight_acceleration=(2000,2000), straight_speed=300)
-    drive.straight(900)
+
+    #gets to blue home from mission 13
+    drive.arc(-80,-150)
+    drive.straight(980)
     settings()
 
 def run2():
-    drive.turn(360)
+    drive.arc(-80,-150)
+    drive.straight(980)
 
 # mission 9
 # starts on 2 thick black lines and 2 squares from the right (sign facing)
