@@ -73,18 +73,18 @@ def run3():
 # starts on after 2 thick black lines + 3 squares
 def run4():
     drive.straight(700)
-    #in between the forge and the flip thingie. just finished forge.
+    #in between the forge and the who lived here (AKA restoration city)
     drive.turn(-35)
-    #flip thingie done
+    #restoration city done
     drive.straight(-50)
     drive.turn(-30)
     #back up and reposition
     drive.straight(185)
     drive.turn(-25)
-    #geting closer to the correct position.
+    #getting closer to the correct position.
     drive.straight(180) 
     drive.turn(25)
-    #repsitioning the robot to have the rear facing market lever
+    #repositioning the robot to have the rear facing market lever
     settings(straight_acceleration=(2000,2000), straight_speed=300)
     drive.straight(-240)
     return
