@@ -29,16 +29,22 @@ def settings(straight_speed=800, straight_acceleration=(300, 700),
 settings()
 startup_checks(hub)
 
+
+def elevator(units: Number):
+    tool_right.run_angle(speed=500, rotation_angle=units*60)
+
+
 #right side of robot is one thick black line and three
 #squares away from the curved line in the red zone facing mission one
 #moves to minecart then statue
 def run1():
     #gets to the minecart lift (AKA mission 3)
-    drive.straight(610)
+    drive.straight(595)
     drive.arc(130, 90)
     drive.straight(280)
     drive.turn(-90)
-    # TODO: build lift tool
+    elevator(30)
+    return
 
     #gets to the seal statue (AKA mission 13)
     drive.turn(76.8)
