@@ -61,9 +61,13 @@ def run1():
     settings()
 
 def run2():
-    drive.arc(-80,-150)
-    drive.straight(980)
-
+    # starts after 1 thick black line from corner in blue zone
+    drive.straight(300)
+    drive.turn(90)
+    drive.straight(100)
+    drive.arc(-155, 90)
+    drive.straight(450)
+    drive.turn(-135)
 # mission 9
 # starts on 2 thick black lines and 2 squares from the right (sign facing)
 def run3():
