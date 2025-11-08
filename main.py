@@ -33,7 +33,7 @@ startup_checks(hub)
 
 
 def elevator(units: Number):
-    tool_right.run_angle(speed=500, rotation_angle=units*60)
+    tool_right.run_angle(speed=500, rotation_angle=units*36)
 
 
 #right side of robot is one thick black line and three
@@ -45,7 +45,7 @@ def run1():
     drive.arc(130, 90)
     drive.straight(280)
     drive.turn(-90)
-    elevator(30)
+    elevator(22)
     return
 
     #gets to the seal statue (AKA mission 13)
