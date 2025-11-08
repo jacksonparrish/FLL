@@ -1,6 +1,6 @@
 from pybricks.hubs import PrimeHub
 from pybricks.parameters import Color, Direction, Port, Stop
-from pybricks.pupdevices import Motor
+from pybricks.pupdevices import Motor, ColorSensor
 from pybricks.robotics import DriveBase
 from pybricksmenu import main_menu, startup_checks
 
@@ -12,6 +12,8 @@ motor_right = Motor(Port.F)
 
 tool_left = Motor(Port.A)
 tool_right = Motor(Port.C)
+
+sensor_left = ColorSensor(Port.D)
 
 #Robot drove 998 mm out of the 1000 it was supposed to.
 wheel_diameter = 88 * 998 / 1000
@@ -66,18 +68,23 @@ def run2():
     drive.turn(90)
     drive.straight(100)
     drive.arc(-155, 90)
-    drive.straight(450)
-    drive.turn(-135)
+    #now on wall
+    drive.straight(430)
+    #now in top-right corner
+    #getting millstone
+    drive.arc(-50,50)
+    return
+    drive.arc(-50,-50)
+    #moving millstone
+
 # mission 9
 # starts on 2 thick black lines and 2 squares from the right (sign facing)
 def run3():
-    drive.straight(600)
-    drive.turn(-45)
-    drive.straight(370)
-    drive.turn(-70)
-    drive.straight(70)
-    drive.turn(-110)
-    drive.straight(200)
+    settings(straight_acceleration=1000, turn_acceleration=1000)
+    while sensor_left.color() != Color.BLUE:
+        drive.arc(-50,150)
+    settings()
+    
 
 # mission 5/6/9
 # starts on after 2 thick black lines + 3 squares
