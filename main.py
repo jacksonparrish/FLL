@@ -98,6 +98,7 @@ def run3():
     drive.arc(-210, 55)
     drive.straight(-30)
     arm()
+    drive.straight(-25)
     drive.arc(35,-90)
 
 def run4():
