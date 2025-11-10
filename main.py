@@ -36,6 +36,11 @@ def elevator(units: Number):
     tool_right.run_angle(speed=500, rotation_angle=units*36)
 
 
+def arm():
+    #never change rotation_angle because we are only using arm once during run 3
+    #115 for rotation_angle means that we move the arm all the way forward 
+    tool_left.run_angle(speed=500, rotation_angle=-115)
+
 #right side of robot is one thick black line and three
 #squares away from the curved line in the red zone facing mission one
 #moves to minecart then statue
@@ -77,42 +82,33 @@ def run2():
     drive.arc(-50,-50)
     #moving millstone
 
-# mission 9
-# starts on 2 thick black lines and 2 squares from the right (sign facing)
+
+# mission 5/6/9
+# starts on after 2 thick black lines + 3 squares from the right side
 def run3():
+    #gets robot to push the forge in
+    drive.straight(700)
+    #pushes who lived here switch
+    drive.turn(-35)
+
+    #gets robot in position for tip the scales lever
+    drive.straight(-50)
+    drive.turn(-30)
+    drive.straight(168)
+    drive.arc(-210, 55)
+    drive.straight(-30)
+    arm()
+    drive.arc(35,-90)
+
+def run4():
     settings(straight_acceleration=1000, turn_acceleration=1000)
     while sensor_left.color() != Color.BLUE:
         drive.arc(-50,150)
     settings()
-    
-
-# mission 5/6/9
-# starts on after 2 thick black lines + 3 squares
-def run4():
-    drive.straight(700)
-    #in between the forge and the who lived here (AKA restoration city)
-    drive.turn(-35)
-    #restoration city done
-    drive.straight(-50)
-    drive.turn(-30)
-    #back up and reposition
-    drive.straight(185)
-    drive.turn(-25)
-    #getting closer to the correct position.
-    drive.straight(180) 
-    drive.turn(25)
-    #repositioning the robot to have the rear facing market lever
-    settings(straight_acceleration=(2000,2000), straight_speed=300)
-    drive.straight(-240)
-    return
-    settings()
-    drive.straight(100)
-
 
 
 def run5():
-    tool_left.run(180)
-    tool_right.run(180)
+    arm()
 
 def run6():
     tool_left.run_angle(180, 360)
