@@ -33,7 +33,7 @@ startup_checks(hub)
 
 
 def elevator(units: Number):
-    tool_right.run_angle(speed=500, rotation_angle=units*36)
+    tool_right.run_angle(speed=500, rotation_angle=units*(-30))
 
 
 def arm():
@@ -50,7 +50,7 @@ def run1():
     drive.arc(130, 90)
     drive.straight(280)
     drive.turn(-90)
-    elevator(22)
+    elevator(20)
     return
 
     #gets to the seal statue (AKA mission 13)
@@ -108,7 +108,7 @@ def run4():
 
 
 def run5():
-    arm()
+    elevator(10)
 
 def run6():
     tool_left.run_angle(180, 360)
