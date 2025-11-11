@@ -41,6 +41,10 @@ def arm():
     #115 for rotation_angle means that we move the arm all the way forward 
     tool_left.run_angle(speed=500, rotation_angle=-115)
 
+
+def curved_arm(degrees_turn: Number):
+    tool_left.run_angle(speed=500, rotation_angle=degrees_turn)
+
 #right side of robot is one thick black line and three
 #squares away from the curved line in the red zone facing mission one
 #moves to minecart then statue
@@ -80,16 +84,22 @@ def run1():
 
 def run2():
     # starts after 1 thick black line from corner in blue zone
-    drive.straight(300)
+    drive.straight(190)
     drive.turn(90)
     drive.straight(100)
     drive.arc(-155, 90)
     #now on wall
-    drive.straight(430)
-    #now in top-right corner
-    #getting millstone
+
+    curved_arm(-180)
+    drive.straight(480)
+    curved_arm(45)
+    drive.straight(28)
+    curved_arm(70)
+    #now have millstone in tool
+     
+    drive.straight(-210)
+    curved_arm(-175)
     return
-    tool_left()
     
 
 
@@ -119,7 +129,7 @@ def run4():
 
 
 def run5():
-    elevator(10)
+    drive.turn(-23)
 
 def run6():
     tool_left.run_angle(180, 360)
