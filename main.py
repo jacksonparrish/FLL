@@ -22,7 +22,7 @@ axel_track = 113.55
 
 drive = DriveBase(motor_left, motor_right, wheel_diameter,axel_track)
 # these are only the default not always the argument if new argument is set.
-def settings(straight_speed=800, straight_acceleration=(300, 700),
+def settings(straight_speed=800, straight_acceleration=(200, 700),
              turn_rate=150, turn_acceleration=(150, 300)):
     drive.settings(straight_speed, straight_acceleration,turn_rate, turn_acceleration)
 
@@ -47,25 +47,36 @@ def arm():
 def run1():
     #gets to the minecart lift (AKA mission 3)
     drive.straight(595)
+    #now in top left corner of board
+
     drive.arc(130, 90)
     drive.straight(280)
+    
+    #turning to face mincart
     drive.turn(-90)
-    elevator(20)
-    return
 
-    #gets to the seal statue (AKA mission 13)
-    drive.turn(76.8)
-    drive.straight(330)
-    drive.turn(90)
-    drive.straight(530)
-    drive.turn(133.5)
-    drive.straight(228)
-    # TODO: make code to push the seal statue
+    #raising minecart
+    elevator(20)
+
+    #lowering the handle so we dont knock the cave entrance down, then backing up to release handle
+    elevator(-20)
+    drive.straight(-20)
+
+    drive.turn(60)
+    drive.straight(370)
+    #now in the middle-top of the board
+    drive.turn(110)
+    #now facing middle-bottom of the board
+    drive.straight(645)
+    #next to the seal
+    drive.turn(140)
+    drive.straight(230)
+    return
+    
+
 
     #gets to blue home from mission 13
-    drive.arc(-80,-150)
-    drive.straight(980)
-    settings()
+    
 
 def run2():
     # starts after 1 thick black line from corner in blue zone
@@ -77,10 +88,9 @@ def run2():
     drive.straight(430)
     #now in top-right corner
     #getting millstone
-    drive.arc(-50,50)
     return
-    drive.arc(-50,-50)
-    #moving millstone
+    tool_left()
+    
 
 
 # mission 5/6/9
