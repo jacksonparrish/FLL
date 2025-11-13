@@ -54,17 +54,25 @@ def run1():
     #now in top left corner of board
 
     drive.arc(130, 90)
-    drive.straight(280)
+    drive.straight(260)
     
     #turning to face mincart
-    drive.turn(-90)
+    drive.turn(-85)
+    
 
     #raising minecart
     elevator(20)
-
+    
     #lowering the handle so we dont knock the cave entrance down, then backing up to release handle
     elevator(-20)
     drive.straight(-20)
+
+    drive.turn(90)
+    drive.straight(-20)
+    drive.turn(45)
+    drive.straight(35)
+    drive.turn(-15)
+    return
 
     drive.turn(60)
     drive.straight(370)
@@ -129,7 +137,7 @@ def run4():
 
 
 def run5():
-    drive.turn(-23)
+    elevator(10)
 
 def run6():
     tool_left.run_angle(180, 360)
