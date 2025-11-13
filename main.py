@@ -93,21 +93,27 @@ def run1():
 def run2():
     # starts after 1 thick black line from corner in blue zone
     drive.straight(190)
-    drive.turn(90)
-    drive.straight(100)
-    drive.arc(-155, 90)
-    #now on wall
+    drive.turn(80)
+    drive.straight(115)
+    drive.arc(-155, 70)
+    #now on east wall
 
+    #open up arm to get past the silo
     curved_arm(-180)
-    drive.straight(480)
-    curved_arm(45)
-    drive.straight(28)
-    curved_arm(70)
+    #drives toward the north wall
+    drive.straight(470)
+    #lets us get closer to the north wall
+    curved_arm(90)
+    #getting all the way to the north wall
+    drive.straight(75)
+
+    curved_arm(100)
     #now have millstone in tool
-     
+
+    # going south to pull millstone 
     drive.straight(-210)
-    curved_arm(-175)
-    return
+    # to get the curved arm out of the border
+    curved_arm(-180)
     
 
 
