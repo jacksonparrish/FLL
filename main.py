@@ -39,7 +39,7 @@ def elevator(units: Number):
 def arm():
     #never change rotation_angle because we are only using arm once during run 3
     #115 for rotation_angle means that we move the arm all the way forward 
-    tool_left.run_angle(speed=500, rotation_angle=-115)
+    tool_left.run_angle(speed=500, rotation_angle=-150)
 
 
 def curved_arm(degrees_turn: Number):
@@ -125,26 +125,31 @@ def run3():
     drive.straight(-50)
     drive.turn(-30)
     drive.straight(168)
-    drive.arc(-210, 55)
-    drive.straight(-30)
+    drive.arc(-195, 55)
+    drive.straight(-40)
     arm()
-    drive.straight(-25)
-    drive.arc(35,-90)
+
+    #arcs to get in position for ancient marketplace slider
+    drive.straight(-190)
+    drive.arc(240,75)
+    drive.turn(-180)
+
+    #drives into lever
+    settings(straight_acceleration=750)
+    drive.straight(260)
+
+    #gets off ancient marketplace
+    drive.straight(-210)
 
 def run4():
-    settings(straight_acceleration=1000, turn_acceleration=1000)
-    while sensor_left.color() != Color.BLUE:
-        drive.arc(-50,150)
-    settings()
+    drive.straight(-65)
 
 
 def run5():
     elevator(10)
 
 def run6():
-    tool_left.run_angle(180, 360)
-    tool_right.run_angle(180, 360)
-    drive.straight(-40)
+    drive.arc(305,-30)
 
 
 run = 1
