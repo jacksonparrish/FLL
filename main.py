@@ -166,3 +166,5 @@ while True:
         run5()
     elif run == 6:
         run6()
+    
+    run = run + 1
