@@ -156,6 +156,9 @@ while True:
     # Show the menu and wait for a choice.
     run = main_menu(hub, num_items = 6, item = run)
 
+    hub.imu.reset_heading(angle=0)
+    drive.reset()
+
     # Run the chosen mission and the loop back to the menu.
     if run == 1:
         run1()
