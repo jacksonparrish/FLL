@@ -114,20 +114,18 @@ def run2():
 
 
 # mission 5/6/9
-# starts on after 2 thick black lines + 3 squares from the right side
+# starts on after 2 thick black lines + 1 square from the right side
 def run3():
     #gets robot to push the forge in
     drive.straight(700)
     #pushes who lived here switch
     drive.turn(-35)
-
-    #gets robot in position for tip the scales lever
-    drive.straight(-50)
-    drive.turn(-30)
-    drive.straight(168)
-    drive.arc(-195, 55)
-    drive.straight(-40)
+    #backs away from who lived here
+    drive.straight(-70)
+    #gets into position for tip the scales
+    drive.arc(-300, 80)
     arm()
+    return
 
     #arcs to get in position for ancient marketplace slider
     drive.straight(-190)
