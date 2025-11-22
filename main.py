@@ -125,19 +125,15 @@ def run3():
     #gets into position for tip the scales
     drive.arc(-300, 80)
     arm()
-    return
 
-    #arcs to get in position for ancient marketplace slider
-    drive.straight(-190)
-    drive.arc(240,75)
-    drive.turn(-180)
+    # moves into open space 
+    drive.straight(-110)
+    #gets front of robot facing marketplace lever
+    drive.turn(25)
+    drive.straight(325)
+    drive.turn(-150)
+    drive.straight(600)
 
-    #drives into lever
-    settings(straight_acceleration=750)
-    drive.straight(260)
-
-    #gets off ancient marketplace
-    drive.straight(-210)
 
 def run4():
     drive.straight(-65)
