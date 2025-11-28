@@ -36,10 +36,13 @@ def elevator(units: Number):
     tool_right.run_angle(speed=500, rotation_angle=units*(-30))
 
 
-def arm():
-    #never change rotation_angle because we are only using arm once during run 3
-    #115 for rotation_angle means that we move the arm all the way forward 
-    tool_left.run_angle(speed=500, rotation_angle=-150)
+def arm(forward: bool):
+    #-150 brings arm forward fully, +150 brings arm fully back
+    if forward:
+        angle=-150
+    else:
+        angle=150
+    tool_left.run_angle(speed=500, rotation_angle=angle)
 
 
 def curved_arm(degrees_turn: Number):
@@ -119,25 +122,31 @@ def run3():
     drive.straight(700)
     #pushes who lived here switch
     drive.turn(-35)
-    #backs away from who lived here
-    drive.straight(-70)
-    #gets into position for tip the scales
-    drive.arc(-300, 80)
-    arm()
+    drive.turn(35)
+    #backs away from who lived here and gets into position for tip the scales lever
+    drive.straight(-110)
+    drive.turn(-45)
+    drive.straight(300)
+    drive.turn(-40)
+    drive.straight(170)
+    drive.turn(-45)
+    arm(forward=True)
+    arm(forward=False)
 
-    # moves into open space 
-    drive.straight(-110)
-    #gets front of robot facing marketplace lever
-    drive.turn(25)
-    drive.straight(325)
-    drive.turn(-55)
-    drive.straight(-110)
-    drive.turn(-88)
-    drive.straight(307)
+    #moves to clear space without impacting other structures to push market lever 
+    drive.turn(40)
+    drive.straight(250)
+    drive.turn(-180)
+    drive.straight(230)
+    drive.turn(45)
+    return
+    
+    drive.straight(370)
 
 
 def run4():
-    drive.straight(-65)
+    drive.arc(-300,80)
+
 
 
 def run5():
