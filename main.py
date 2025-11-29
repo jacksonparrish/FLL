@@ -135,17 +135,21 @@ def run3():
 
     #moves to clear space without impacting other structures to push market lever 
     drive.turn(40)
-    drive.straight(250)
+    drive.straight(235)
     drive.turn(-180)
-    drive.straight(230)
+    drive.straight(265)
     drive.turn(45)
-    return
-    
-    drive.straight(370)
+
+    #pushes market sliding lever and backs away
+    drive.straight(205)
+    drive.straight(-200)
+
 
 
 def run4():
-    drive.arc(-300,80)
+    pass
+    
+    
 
 
 
