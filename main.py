@@ -50,7 +50,7 @@ def curved_arm(degrees_turn: Number):
 
 #right side of robot is one thick black line and three
 #squares away from the curved line in the red zone facing mission one
-#moves to minecart then statue
+#missions 3 (minecart) & 13 (statue)
 def run1():
     #gets to the minecart lift (AKA mission 3)
     drive.straight(578)
@@ -88,8 +88,9 @@ def run1():
     drive.arc(250, 90)
     drive.straight(500)
 
+#starts after 1 thick black line from corner in blue zone
+#mission 7 (millstone)
 def run2():
-    # starts after 1 thick black line from corner in blue zone
     drive.straight(190)
     drive.turn(80)
     drive.straight(115)
@@ -114,8 +115,7 @@ def run2():
     curved_arm(-180)
     
 
-
-# mission 5/6/9
+# mission 5/6/9/10
 # starts on after 2 thick black lines + 1 square from the right side
 def run3():
     #gets robot to push the forge in
