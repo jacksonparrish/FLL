@@ -82,7 +82,7 @@ def run1():
     #statue now raised
     #gets to blue home from mission 13
     drive.straight(-50)
-    drive.arc(300, -35)
+    drive.arc(310, -35)
 
     drive.straight(1000)
     drive.arc(250, 90)
