@@ -53,7 +53,7 @@ def curved_arm(degrees_turn: Number):
 #missions 3 (minecart) & 13 (statue)
 def run1():
     #gets to the minecart lift (AKA mission 3)
-    drive.straight(578)
+    drive.straight(590)
     #now in top left corner of board
 
     drive.arc(130, 90)
@@ -72,8 +72,8 @@ def run1():
     
     # turning to face seal
     drive.turn(90)
-    drive.straight(-50)
-    drive.turn(45)
+    drive.straight(-55)
+    drive.turn(50)
     drive.straight(35)
 
     drive.turn(-10)
