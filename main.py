@@ -53,15 +53,14 @@ def curved_arm(degrees_turn: Number):
 #missions 3 (minecart) & 13 (statue)
 def run1():
     #gets to the minecart lift (AKA mission 3)
-    drive.straight(590)
+    drive.straight(570)
     #now in top left corner of board
 
     drive.arc(130, 90)
     drive.straight(300)
     
     #turning to face mincart
-    drive.turn(-90)
-    drive.straight(10)
+    drive.turn(-94)
 
     #raising minecart
     elevator(20)
@@ -72,14 +71,13 @@ def run1():
     
     # turning to face seal
     drive.turn(90)
-    drive.straight(-55)
+    drive.straight(-70)
     drive.turn(50)
-    drive.straight(35)
-
+    drive.straight(40)
     drive.turn(-10)
     elevator(20)
-
     #statue now raised
+
     #gets to blue home from mission 13
     drive.straight(-50)
     drive.arc(310, -35)
@@ -144,27 +142,15 @@ def run3():
     drive.straight(205)
     drive.straight(-200)
 
-
-
 def run4():
-    pass
-    
-    
-
-
-
-def run5():
-    elevator(10)
-
-def run6():
-    drive.arc(305,-30)
+    elevator(20)
 
 
 run = 1
 
 while True:
     # Show the menu and wait for a choice.
-    run = main_menu(hub, num_items = 6, item = run)
+    run = main_menu(hub, num_items = 4, item = run)
 
     hub.imu.reset_heading(angle=0)
     drive.reset()
@@ -178,9 +164,5 @@ while True:
         run3()
     elif run == 4:
         run4()
-    elif run == 5:
-        run5()
-    elif run == 6:
-        run6()
     
     run = run + 1
