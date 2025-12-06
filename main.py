@@ -53,37 +53,35 @@ def curved_arm(degrees_turn: Number):
 #missions 3 (minecart) & 13 (statue)
 def run1():
     #gets to the minecart lift (AKA mission 3)
-    drive.straight(570)
+    drive.straight(577)
     #now in top left corner of board
 
-    drive.arc(130, 90)
-    drive.straight(300)
-    
+    drive.arc(180, 100)
+    drive.straight(250)
+
     #turning to face mincart
-    drive.turn(-94)
+    drive.arc(30,-95)
 
     #raising minecart
     elevator(20)
     
     #lowering the handle so we dont knock the cave entrance down, then backing up to release handle
     elevator(-20)
-    drive.straight(-15)
-    
+        
     # turning to face seal
     drive.turn(90)
     drive.straight(-70)
-    drive.turn(50)
-    drive.straight(40)
-    drive.turn(-10)
+    drive.turn(35)
+    drive.straight(54)
     elevator(20)
     #statue now raised
 
     #gets to blue home from mission 13
     drive.straight(-50)
-    drive.arc(310, -35)
+    drive.arc(330, -39)
 
-    drive.straight(1000)
-    drive.arc(250, 90)
+    drive.straight(1010)
+    drive.arc(250, 87)
     drive.straight(500)
 
 #starts after 1 thick black line from corner in blue zone
