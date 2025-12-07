@@ -53,32 +53,38 @@ def curved_arm(degrees_turn: Number):
 #missions 3 (minecart) & 13 (statue)
 def run1():
     #gets to the minecart lift (AKA mission 3)
-    drive.straight(577)
+    drive.straight(585)
     #now in top left corner of board
 
     drive.arc(180, 100)
-    drive.straight(250)
+    drive.straight(240)
 
     #turning to face mincart
-    drive.arc(30,-95)
-
+    drive.arc(30,-100)
+    # beeping s moey will notice if it is not working
+    hub.speaker.volume(75)
+    hub.speaker.beep(frequency=500, duration=300)
+    hub.speaker.volume(50)
+    drive.straight(20)
     #raising minecart
     elevator(20)
     
     #lowering the handle so we dont knock the cave entrance down, then backing up to release handle
-    elevator(-20)
+    elevator(-21)
         
     # turning to face seal
+    drive.straight(-20)
     drive.turn(90)
-    drive.straight(-70)
-    drive.turn(35)
-    drive.straight(54)
+    drive.straight(-84)
+    drive.turn(33)
+    drive.straight(37)
+    
     elevator(20)
     #statue now raised
 
     #gets to blue home from mission 13
     drive.straight(-50)
-    drive.arc(330, -39)
+    drive.arc(330, -44)
 
     drive.straight(1010)
     drive.arc(250, 87)
@@ -131,13 +137,14 @@ def run3():
 
     #moves to clear space without impacting other structures to push market lever 
     drive.turn(40)
-    drive.straight(235)
+    drive.straight(240)
     drive.turn(-180)
-    drive.straight(265)
+    drive.straight(270)
     drive.turn(45)
 
     #pushes market sliding lever and backs away
-    drive.straight(205)
+    drive.straight(225)
+    drive.turn(-45)
     drive.straight(-200)
 
 def run4():
