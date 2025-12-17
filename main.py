@@ -148,8 +148,12 @@ def run3():
     drive.straight(-200)
 
 def run4():
-    elevator(20)
-
+    # emergency run starts with right side of robot on
+    # black line away from the curved red line.
+    # then=Stop.NONE is telling the robot to not stop between
+    # arc and straight.
+    drive.arc(320, 94, then=Stop.NONE)
+    drive.straight(1250)
 
 run = 1
 
