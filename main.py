@@ -165,11 +165,18 @@ def run5():
     drive.straight(-70)
     elevator(20)
 
+def run6(): 
+    #robot drives forward to do the Surface Brushing mission
+    #postion: 2 thick line 2 squares
+    settings(straight_acceleration=800)
+    drive.straight(600)
+    drive.straight(-600)
+
 run = 1
 
 while True:
     # Show the menu and wait for a choice.
-    run = main_menu(hub, num_items = 5, item = run)
+    run = main_menu(hub, num_items = 6, item = run)
 
     hub.imu.reset_heading(angle=0)
     drive.reset()
@@ -186,5 +193,7 @@ while True:
         run4()
     elif run == 5:
         run5()
+    elif run == 6:
+        run6()
 
     run = run + 1
