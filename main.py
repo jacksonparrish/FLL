@@ -155,14 +155,25 @@ def run4():
     drive.arc(320, 94, then=Stop.NONE)
     drive.straight(1250)
 
+def run5():
+    #left side of jig is on last black line 
+    #robot all the way on supporters
+    settings(straight_acceleration=(100, 100))
+    elevator(5)
+    drive.straight(407)
+    elevator(-7)
+    drive.straight(-70)
+    elevator(20)
+
 run = 1
 
 while True:
     # Show the menu and wait for a choice.
-    run = main_menu(hub, num_items = 4, item = run)
+    run = main_menu(hub, num_items = 5, item = run)
 
     hub.imu.reset_heading(angle=0)
     drive.reset()
+    settings()
 
     # Run the chosen mission and the loop back to the menu.
     if run == 1:
@@ -173,5 +184,7 @@ while True:
         run3()
     elif run == 4:
         run4()
-    
+    elif run == 5:
+        run5()
+
     run = run + 1
