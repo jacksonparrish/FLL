@@ -176,11 +176,18 @@ def run7():
     tool_left.run_angle(5e6, 180)
     tool_left.run_angle(5e6, -180)
 
+def run8():
+    # jig starts 2+2
+    drive.straight(660)
+    drive.arc(-320, -94, then=Stop.NONE)
+    drive.arc(350,94)
+    drive.straight(1200)
+
 run = 1
 
 while True:
     # Show the menu and wait for a choice.
-    run = main_menu(hub, num_items = 7, item = run)
+    run = main_menu(hub, num_items = 8, item = run)
 
     hub.imu.reset_heading(angle=0)
     drive.reset()
@@ -201,5 +208,7 @@ while True:
         run6()
     elif run == 7:
         run7()
+    elif run == 8:
+        run8()
 
     run = run + 1
