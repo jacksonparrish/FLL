@@ -172,11 +172,15 @@ def run6():
     drive.straight(600)
     drive.straight(-600)
 
+def run7():
+    tool_left.run_angle(5e6, 180)
+    tool_left.run_angle(5e6, -180)
+
 run = 1
 
 while True:
     # Show the menu and wait for a choice.
-    run = main_menu(hub, num_items = 6, item = run)
+    run = main_menu(hub, num_items = 7, item = run)
 
     hub.imu.reset_heading(angle=0)
     drive.reset()
@@ -195,5 +199,7 @@ while True:
         run5()
     elif run == 6:
         run6()
+    elif run == 7:
+        run7()
 
     run = run + 1
