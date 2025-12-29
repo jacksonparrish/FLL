@@ -167,9 +167,9 @@ def run5():
 
 def run6(): 
     #robot drives forward to do the Surface Brushing mission
-    #postion: 2 thick line 2 squares
+    #postion: 2 thick line 1 square
     settings(straight_acceleration=800)
-    drive.straight(600)
+    drive.straight(650)
     drive.straight(-600)
 
 def run7():
