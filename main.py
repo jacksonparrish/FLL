@@ -167,7 +167,7 @@ def run5():
 
 def run6(): 
     #robot drives forward to do the Surface Brushing mission
-    #postion: 2 thick line 1 square
+    #postion: 2 thick line 1 squares
     settings(straight_acceleration=800)
     drive.straight(650)
     drive.straight(-600)
@@ -177,10 +177,11 @@ def run7():
     tool_left.run_angle(5e6, -180)
 
 def run8():
-    # jig starts 2+2
+    # jig starts 2+2.Remember to pull jig out before starting.
     drive.straight(660)
-    drive.arc(-320, -94, then=Stop.NONE)
-    drive.arc(350,94)
+    drive.arc(-150,-70)
+    drive.turn(-75)
+    settings(straight_acceleration=800)
     drive.straight(1200)
 
 run = 1
