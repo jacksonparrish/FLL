@@ -21,10 +21,13 @@ wheel_diameter = 88 * 998 / 1000
 axel_track = 113.55
 
 drive = DriveBase(motor_left, motor_right, wheel_diameter,axel_track)
+
+competition = False
+
 # these are only the default not always the argument if new argument is set.
 def settings(straight_speed=800, straight_acceleration=(200, 700),
              turn_rate=150, turn_acceleration=(150, 300)):
-    drive.settings(straight_speed, straight_acceleration,turn_rate, turn_acceleration)
+    drive.settings(straight_speed, straight_acceleration, turn_rate, turn_acceleration)
 
 
 # slow down faster for faster runs
@@ -173,12 +176,17 @@ def run6():
     drive.straight(-600)
 
 def run7():
-    tool_left.run_angle(5e6, 180)
-    tool_left.run_angle(5e6, -180)
+    #postion: 3 and a half squares no thick lines
+    drive.straight(370)
+    for _ in range(3):
+        tool_left.run_angle(100, 180)
+        tool_left.run_angle(5e6, -180)
+    settings(straight_speed=800, straight_acceleration=800)
+    drive.straight(-370)
 
 def run8():
-    # jig starts 2+2.Remember to pull jig out before starting.
-    drive.straight(660)
+    # jig starts 3+2.Remember to pull jig out before starting.
+    drive.straight(810)
     drive.arc(-150,-70)
     drive.turn(-75)
     settings(straight_acceleration=800)
