@@ -59,27 +59,32 @@ def run1():
     if competition:
         drive.straight(585)
     else:
-        drive.straight(560)
+        drive.straight(555)
     #now in top left corner of board
 
     drive.arc(180, 100)
-    drive.straight(240)
+    if competition:
+        drive.straight(240)
+    else:
+        drive.straight(255)
 
     #turning to face minecart
     if competition:
-        drive.arc(30,-100)
+        drive.arc(30, -100)
     else:
-        drive.arc(40,-110)
+        drive.arc(30, -120)
 
-    # beeping s moey will notice if it is not working
+    # beeping so moey will notice if it is not working
     hub.speaker.volume(75)
-    hub.speaker.beep(frequency=500, duration=300)
+    hub.speaker.beep(frequency=500, duration=350)
     hub.speaker.volume(50)
     if competition:
         drive.straight(20)
+    else:
+        drive.straight(20)
     #raising minecart
     elevator(20)
-    
+
     #lowering the handle so we dont knock the cave entrance down, then backing up to release handle
     elevator(-21)
         
@@ -89,20 +94,19 @@ def run1():
     drive.straight(-84)
     if competition:
         drive.turn(33)
+        drive.straight(37)
     else:
-        drive.turn(30)
-    drive.straight(37)
-    
+        drive.turn(35)
+        drive.straight(39)
+
     elevator(20)
     #statue now raised
 
-    #gets to blue home from mission 13
-    drive.straight(-50)
-    drive.arc(330, -44)
+    #gets back to red home
+    drive.straight(-330)
+    drive.turn(70)
+    drive.straight(870)
 
-    drive.straight(1010)
-    drive.arc(250, 87)
-    drive.straight(500)
 
 #starts after 1 thick black line from corner in blue zone
 #mission 7 (millstone)
