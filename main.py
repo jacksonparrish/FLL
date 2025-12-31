@@ -177,10 +177,13 @@ def run6():
 
 def run7():
     #postion: 3 and a half squares no thick lines
+    #slow down start of mission to make it more accurate
+    settings(straight_acceleration=(100, 700))
     drive.straight(370)
     for _ in range(3):
         tool_left.run_angle(100, 180)
         tool_left.run_angle(5e6, -180)
+    #want to get back to home fast as possible
     settings(straight_speed=800, straight_acceleration=800)
     drive.straight(-370)
 
