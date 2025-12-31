@@ -56,19 +56,27 @@ def curved_arm(degrees_turn: Number):
 #missions 3 (minecart) & 13 (statue)
 def run1():
     #gets to the minecart lift (AKA mission 3)
-    drive.straight(585)
+    if competition:
+        drive.straight(585)
+    else:
+        drive.straight(560)
     #now in top left corner of board
 
     drive.arc(180, 100)
     drive.straight(240)
 
-    #turning to face mincart
-    drive.arc(30,-100)
+    #turning to face minecart
+    if competition:
+        drive.arc(30,-100)
+    else:
+        drive.arc(40,-110)
+
     # beeping s moey will notice if it is not working
     hub.speaker.volume(75)
     hub.speaker.beep(frequency=500, duration=300)
     hub.speaker.volume(50)
-    drive.straight(20)
+    if competition:
+        drive.straight(20)
     #raising minecart
     elevator(20)
     
@@ -79,7 +87,10 @@ def run1():
     drive.straight(-20)
     drive.turn(90)
     drive.straight(-84)
-    drive.turn(33)
+    if competition:
+        drive.turn(33)
+    else:
+        drive.turn(30)
     drive.straight(37)
     
     elevator(20)
