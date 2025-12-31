@@ -55,11 +55,12 @@ def curved_arm(degrees_turn: Number):
 #squares away from the curved line in the red zone facing mission one
 #missions 3 (minecart) & 13 (statue)
 def run1():
+    settings(straight_acceleration=200)
     #gets to the minecart lift (AKA mission 3)
     if competition:
         drive.straight(585)
     else:
-        drive.straight(555)
+        drive.straight(560)
     #now in top left corner of board
 
     drive.arc(180, 100)
@@ -96,7 +97,7 @@ def run1():
         drive.turn(33)
         drive.straight(37)
     else:
-        drive.turn(35)
+        drive.turn(37)
         drive.straight(39)
 
     elevator(20)
@@ -105,7 +106,8 @@ def run1():
     #gets back to red home
     drive.straight(-330)
     drive.turn(70)
-    drive.straight(870)
+    settings(straight_acceleration=800)
+    drive.straight(700)
 
 
 #starts after 1 thick black line from corner in blue zone
@@ -180,8 +182,10 @@ def run5():
     elevator(5)
     drive.straight(407)
     elevator(-7)
+    settings(straight_acceleration=800)
     drive.straight(-70)
-    elevator(20)
+    elevator(7)
+    drive.straight(-400)
 
 def run6(): 
     #robot drives forward to do the Surface Brushing mission
