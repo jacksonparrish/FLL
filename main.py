@@ -29,15 +29,11 @@ def settings(straight_speed=800, straight_acceleration=(200, 700),
              turn_rate=150, turn_acceleration=(150, 300)):
     drive.settings(straight_speed, straight_acceleration, turn_rate, turn_acceleration)
 
-
 # slow down faster for faster runs
-settings()
 startup_checks(hub)
 
-
-def elevator(units: Number):
+def elevator(units: int):
     tool_right.run_angle(speed=500, rotation_angle=units*(-30))
-
 
 def arm(forward: bool):
     #-150 brings arm forward fully, +150 brings arm fully back
@@ -47,14 +43,13 @@ def arm(forward: bool):
         angle=150
     tool_left.run_angle(speed=500, rotation_angle=angle)
 
-
-def curved_arm(degrees_turn: Number):
+def curved_arm(degrees_turn: float):
     tool_left.run_angle(speed=500, rotation_angle=degrees_turn)
 
 #right side of robot is one thick black line and three
 #squares away from the curved line in the red zone facing mission one
 #missions 3 (minecart) & 13 (statue)
-def run1():
+def run_minecart():
     settings(straight_acceleration=200)
     #gets to the minecart lift (AKA mission 3)
     if competition:
@@ -109,10 +104,9 @@ def run1():
     settings(straight_acceleration=800)
     drive.straight(700)
 
-
 #starts after 1 thick black line from corner in blue zone
 #mission 7 (millstone)
-def run2():
+def run_millstone():
     drive.straight(190)
     drive.turn(80)
     drive.straight(115)
@@ -135,11 +129,10 @@ def run2():
     drive.straight(-210)
     # to get the curved arm out of the border
     curved_arm(-180)
-    
 
 # mission 5/6/9/10
 # starts on after 2 thick black lines + 1 square from the right side
-def run3():
+def run_market():
     #gets robot to push the forge in
     drive.straight(700)
     #pushes who lived here switch
@@ -167,7 +160,7 @@ def run3():
     drive.turn(-45)
     drive.straight(-200)
 
-def run4():
+def run_EMERGENCY():
     # emergency run starts with right side of robot on
     # black line away from the curved red line.
     # then=Stop.NONE is telling the robot to not stop between
@@ -175,8 +168,8 @@ def run4():
     drive.arc(320, 94, then=Stop.NONE)
     drive.straight(1250)
 
-def run5():
-    #left side of jig is on last black line 
+def run_sand():
+    # right side of jig is on 2+2 
     #robot all the way on supporters
     settings(straight_acceleration=(100, 100))
     elevator(5)
@@ -187,15 +180,15 @@ def run5():
     elevator(7)
     drive.straight(-400)
 
-def run6(): 
+def run_brush(): 
     #robot drives forward to do the Surface Brushing mission
     #postion: 2 thick line 1 squares
     settings(straight_acceleration=800)
     drive.straight(650)
     drive.straight(-600)
 
-def run7():
-    #postion: 3 and a half squares no thick lines
+def run_silo():
+    #right side of jig starts at 0th black line
     #slow down start of mission to make it more accurate
     settings(straight_acceleration=(100, 700))
     drive.straight(370)
@@ -206,7 +199,7 @@ def run7():
     settings(straight_speed=800, straight_acceleration=800)
     drive.straight(-370)
 
-def run8():
+def run_ship():
     # jig starts 3+2.Remember to pull jig out before starting.
     drive.straight(810)
     drive.arc(-150,-70)
@@ -226,20 +219,20 @@ while True:
 
     # Run the chosen mission and the loop back to the menu.
     if run == 1:
-        run1()
+        run_minecart()
     elif run == 2:
-        run2()
+        run_brush()
     elif run == 3:
-        run3()
+        run_sand()
     elif run == 4:
-        run4()
+        run_ship()
     elif run == 5:
-        run5()
+        run_silo()
     elif run == 6:
-        run6()
+        run_millstone()
     elif run == 7:
-        run7()
+        run_market()
     elif run == 8:
-        run8()
+        run_EMERGENCY()
 
     run = run + 1
