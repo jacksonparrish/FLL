@@ -221,9 +221,9 @@ while True:
     if run == 1:
         run_minecart()
     elif run == 2:
-        run_brush()
-    elif run == 3:
         run_sand()
+    elif run == 3:
+        run_brush()
     elif run == 4:
         run_ship()
     elif run == 5:
