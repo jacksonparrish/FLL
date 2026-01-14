@@ -21,7 +21,6 @@ wheel_diameter = 88 * 998 / 1000
 axel_track = 113.55
 
 drive = DriveBase(motor_left, motor_right, wheel_diameter,axel_track)
-
 competition = False
 
 # these are only the default not always the argument if new argument is set.
@@ -169,18 +168,18 @@ def run_EMERGENCY():
     drive.straight(1250)
 
 def run_sand():
-    # right side of jig is on 2+2 
+    # right side of robot on side line on 2 squares 
     #robot all the way on supporters
     settings(straight_acceleration=(100, 100))
     elevator(5)
-    drive.straight(407)
+    drive.straight(497)
     elevator(-7)
     settings(straight_acceleration=800)
     drive.straight(-70)
     elevator(7)
     drive.straight(-400)
 
-def run_brush(): 
+def run_brush():
     #robot drives forward to do the Surface Brushing mission
     #postion: 2 thick line 1 squares
     settings(straight_acceleration=800)
@@ -211,11 +210,12 @@ run = 1
 
 while True:
     # Show the menu and wait for a choice.
+    drive.use_gyro(False)
     run = main_menu(hub, num_items = 8, item = run)
-
     hub.imu.reset_heading(angle=0)
     drive.reset()
     settings()
+    drive.use_gyro(True)
 
     # Run the chosen mission and the loop back to the menu.
     if run == 1:
