@@ -106,6 +106,9 @@ def run_minecart():
 #starts after 1 thick black line from corner in blue zone
 #mission 7 (millstone)
 def run_millstone():
+    #robot will need to redirect itself on the wall and with gyro robot won't do that
+    drive.use_gyro(False)
+
     drive.straight(190)
     drive.turn(80)
     drive.straight(115)
@@ -155,7 +158,8 @@ def run_market():
     drive.turn(45)
 
     #pushes market sliding lever and backs away
-    drive.straight(225)
+    drive.use_gyro(False)
+    drive.straight(240)
     drive.turn(-45)
     drive.straight(-200)
 
@@ -200,9 +204,9 @@ def run_silo():
 
 def run_ship():
     # jig starts 3+2.Remember to pull jig out before starting.
-    drive.straight(810)
+    drive.straight(825)
     drive.arc(-150,-70)
-    drive.turn(-75)
+    drive.turn(-60)
     settings(straight_acceleration=800)
     drive.straight(1200)
 
