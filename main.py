@@ -21,7 +21,6 @@ wheel_diameter = 88 * 998 / 1000
 axel_track = 113.55
 
 drive = DriveBase(motor_left, motor_right, wheel_diameter,axel_track)
-competition = False
 
 # these are only the default not always the argument if new argument is set.
 def settings(straight_speed=800, straight_acceleration=(200, 700),
@@ -51,35 +50,19 @@ def curved_arm(degrees_turn: float):
 def run_minecart():
     settings(straight_acceleration=200)
     #gets to the minecart lift (AKA mission 3)
-    if competition:
-        drive.straight(585)
-    else:
-        drive.straight(560)
+    drive.straight(543)
     #now in top left corner of board
-
-    drive.arc(180, 100)
-    if competition:
-        drive.straight(240)
-    else:
-        drive.straight(255)
+    
+    drive.arc(180, 90)
+    drive.straight(255)
 
     #turning to face minecart
-    if competition:
-        drive.arc(30, -100)
-    else:
-        drive.arc(30, -120)
-
-    # beeping so moey will notice if it is not working
-    hub.speaker.volume(75)
-    hub.speaker.beep(frequency=500, duration=350)
-    hub.speaker.volume(50)
-    if competition:
-        drive.straight(20)
-    else:
-        drive.straight(20)
+    drive.turn(-93)
+    drive.straight(18)
+    
     #raising minecart
     elevator(20)
-
+    return
     #lowering the handle so we dont knock the cave entrance down, then backing up to release handle
     elevator(-21)
         
@@ -87,12 +70,8 @@ def run_minecart():
     drive.straight(-20)
     drive.turn(90)
     drive.straight(-84)
-    if competition:
-        drive.turn(33)
-        drive.straight(37)
-    else:
-        drive.turn(37)
-        drive.straight(39)
+    drive.turn(37)
+    drive.straight(39)
 
     elevator(20)
     #statue now raised
