@@ -54,27 +54,28 @@ def run_minecart():
     #now in top left corner of board
     
     drive.arc(180, 90)
-    drive.straight(255)
+    drive.straight(235)
 
     #turning to face minecart
-    drive.turn(-93)
+    drive.turn(-90)
     drive.straight(18)
     
     #raising minecart
     elevator(20)
-    return
     #lowering the handle so we dont knock the cave entrance down, then backing up to release handle
     elevator(-21)
-        
+
     # turning to face seal
     drive.straight(-20)
-    drive.turn(90)
-    drive.straight(-84)
-    drive.turn(37)
+    drive.turn(75)
+    drive.straight(-90)
+    drive.turn(60)
     drive.straight(39)
+    drive.turn(-25)
 
     elevator(20)
     #statue now raised
+    return
 
     #gets back to red home
     drive.straight(-330)
