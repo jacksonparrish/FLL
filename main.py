@@ -66,22 +66,21 @@ def run_minecart():
     elevator(-21)
 
     # turning to face seal
-    drive.straight(-20)
-    drive.turn(75)
-    drive.straight(-90)
-    drive.turn(60)
-    drive.straight(39)
-    drive.turn(-25)
+    drive.straight(-40)
+    drive.turn(45)
+    drive.arc(300, 45)
+    drive.straight(-350)
+    drive.turn(45)
+    drive.straight(130)
 
     elevator(20)
     #statue now raised
-    return
 
     #gets back to red home
     drive.straight(-330)
-    drive.turn(70)
+    drive.turn(60)
     settings(straight_acceleration=800)
-    drive.straight(700)
+    drive.straight(800)
 
 #starts after 1 thick black line from corner in blue zone
 #mission 7 (millstone)
