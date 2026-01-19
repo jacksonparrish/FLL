@@ -50,7 +50,7 @@ def curved_arm(degrees_turn: float):
 def run_minecart():
     settings(straight_acceleration=200)
     #gets to the minecart lift (AKA mission 3)
-    drive.straight(543)
+    drive.straight(540)
     #now in top left corner of board
     
     drive.arc(180, 90)
@@ -69,8 +69,8 @@ def run_minecart():
     drive.straight(-40)
     drive.turn(45)
     drive.arc(300, 45)
-    drive.straight(-350)
-    drive.turn(45)
+    drive.straight(-360)
+    drive.turn(42)
     drive.straight(130)
 
     elevator(20)
@@ -138,7 +138,8 @@ def run_market():
 
     #pushes market sliding lever and backs away
     drive.use_gyro(False)
-    drive.straight(240)
+    settings(straight_acceleration=(800,))
+    drive.straight(300)
     drive.turn(-45)
     drive.straight(-200)
 
