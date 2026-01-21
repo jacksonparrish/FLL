@@ -22,13 +22,12 @@ axel_track = 113.55
 
 drive = DriveBase(motor_left, motor_right, wheel_diameter,axel_track)
 
+startup_checks(hub)
+
 # these are only the default not always the argument if new argument is set.
 def settings(straight_speed=800, straight_acceleration=(200, 700),
              turn_rate=150, turn_acceleration=(150, 300)):
     drive.settings(straight_speed, straight_acceleration, turn_rate, turn_acceleration)
-
-# slow down faster for faster runs
-startup_checks(hub)
 
 def elevator(units: int):
     tool_right.run_angle(speed=500, rotation_angle=units*(-30))
@@ -85,19 +84,19 @@ def run_minecart():
 #starts after 1 thick black line from corner in blue zone
 #mission 7 (millstone)
 def run_millstone():
-    #robot will need to redirect itself on the wall and with gyro robot won't do that
-    drive.use_gyro(False)
-
     drive.straight(190)
     drive.turn(80)
     drive.straight(115)
     drive.arc(-155, 70)
     #now on east wall
-
     #open up arm to get past the silo
     curved_arm(-180)
+
+    #robot will need to redirect itself on the wall and with gyro robot won't do that
+    drive.use_gyro(False)
     #drives toward the north wall
     drive.straight(470)
+
     #lets us get closer to the north wall
     curved_arm(90)
     #getting all the way to the north wall
