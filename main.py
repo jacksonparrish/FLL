@@ -183,6 +183,7 @@ def run_silo():
 
 def run_ship():
     # jig starts 3+2.Remember to pull jig out before starting.
+    tool_left.run_angle(100, 180)  # raise hammer
     drive.straight(825)
     drive.arc(-150,-70)
     drive.turn(-60)
