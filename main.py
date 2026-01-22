@@ -47,7 +47,7 @@ def curved_arm(degrees_turn: float):
 #squares away from the curved line in the red zone facing mission one
 #missions 3 (minecart) & 13 (statue)
 def run_minecart():
-    settings(straight_acceleration=200)
+    settings(straight_acceleration=350)
     #gets to the minecart lift (AKA mission 3)
     drive.straight(540)
     #now in top left corner of board
@@ -70,7 +70,7 @@ def run_minecart():
     drive.arc(300, 45)
     drive.straight(-360)
     drive.turn(42)
-    drive.straight(130)
+    drive.straight(135)
 
     elevator(20)
     #statue now raised
@@ -91,7 +91,6 @@ def run_millstone():
     #now on east wall
     #open up arm to get past the silo
     curved_arm(-180)
-
     #robot will need to redirect itself on the wall and with gyro robot won't do that
     drive.use_gyro(False)
     #drives toward the north wall
@@ -109,6 +108,8 @@ def run_millstone():
     drive.straight(-210)
     # to get the curved arm out of the border
     curved_arm(-180)
+    settings(straight_acceleration=800)
+    drive.straight(-600)
 
 # mission 5/6/9/10
 # starts on after 2 thick black lines + 1 square from the right side
@@ -166,8 +167,9 @@ def run_brush():
     #robot drives forward to do the Surface Brushing mission
     #postion: 2 thick line 1 squares
     settings(straight_acceleration=800)
+    drive.use_gyro(True)
     drive.straight(650)
-    drive.straight(-600)
+    drive.straight(-610)
 
 def run_silo():
     #right side of jig starts at 0th black line
@@ -184,7 +186,8 @@ def run_silo():
 def run_ship():
     # jig starts 3+2.Remember to pull jig out before starting.
     tool_left.run_angle(100, 180)  # raise hammer
-    drive.straight(825)
+    drive.use_gyro(True)
+    drive.straight(830)
     drive.arc(-150,-70)
     drive.turn(-60)
     settings(straight_acceleration=800)
