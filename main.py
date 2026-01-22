@@ -32,6 +32,9 @@ def settings(straight_speed=800, straight_acceleration=(200, 700),
 def elevator(units: int):
     tool_right.run_angle(speed=500, rotation_angle=units*(-30))
 
+def go_fast():
+    settings(straight_acceleration=800)
+
 def arm(forward: bool):
     #-150 brings arm forward fully, +150 brings arm fully back
     if forward:
@@ -78,7 +81,7 @@ def run_minecart():
     #gets back to red home
     drive.straight(-330)
     drive.turn(60)
-    settings(straight_acceleration=800)
+    go_fast()
     drive.straight(800)
 
 #starts after 1 thick black line from corner in blue zone
@@ -108,7 +111,7 @@ def run_millstone():
     drive.straight(-210)
     # to get the curved arm out of the border
     curved_arm(-180)
-    settings(straight_acceleration=800)
+    go_fast()
     drive.straight(-600)
 
 # mission 5/6/9/10
@@ -138,7 +141,7 @@ def run_market():
 
     #pushes market sliding lever and backs away
     drive.use_gyro(False)
-    settings(straight_acceleration=(800,))
+    go_fast()
     drive.straight(300)
     drive.turn(-45)
     drive.straight(-200)
@@ -158,7 +161,7 @@ def run_sand():
     elevator(5)
     drive.straight(497)
     elevator(-7)
-    settings(straight_acceleration=800)
+    go_fast()
     drive.straight(-70)
     elevator(7)
     drive.straight(-400)
@@ -166,7 +169,7 @@ def run_sand():
 def run_brush():
     #robot drives forward to do the Surface Brushing mission
     #postion: 2 thick line 1 squares
-    settings(straight_acceleration=800)
+    go_fast()
     drive.use_gyro(True)
     drive.straight(650)
     drive.straight(-610)
@@ -180,7 +183,7 @@ def run_silo():
         tool_left.run_angle(100, 180)
         tool_left.run_angle(5e6, -180)
     #want to get back to home fast as possible
-    settings(straight_speed=800, straight_acceleration=800)
+    go_fast()
     drive.straight(-370)
 
 def run_ship():
@@ -190,7 +193,7 @@ def run_ship():
     drive.straight(830)
     drive.arc(-150,-70)
     drive.turn(-60)
-    settings(straight_acceleration=800)
+    go_fast()
     drive.straight(1200)
 
 run = 1
