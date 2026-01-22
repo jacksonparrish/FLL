@@ -54,14 +54,14 @@ def run_minecart():
     #gets to the minecart lift (AKA mission 3)
     drive.straight(540)
     #now in top left corner of board
-    
+
     drive.arc(180, 90)
     drive.straight(235)
 
     #turning to face minecart
     drive.turn(-90)
     drive.straight(18)
-    
+
     #raising minecart
     elevator(20)
     #lowering the handle so we dont knock the cave entrance down, then backing up to release handle
@@ -107,7 +107,7 @@ def run_millstone():
     curved_arm(100)
     #now have millstone in tool
 
-    # going south to pull millstone 
+    # going south to pull millstone
     drive.straight(-210)
     # to get the curved arm out of the border
     curved_arm(-180)
@@ -132,7 +132,7 @@ def run_market():
     arm(forward=True)
     arm(forward=False)
 
-    #moves to clear space without impacting other structures to push market lever 
+    #moves to clear space without impacting other structures to push market lever
     drive.turn(40)
     drive.straight(240)
     drive.turn(-180)
@@ -155,7 +155,7 @@ def run_EMERGENCY():
     drive.straight(1250)
 
 def run_sand():
-    # right side of robot on side line on 2 squares 
+    # right side of robot on side line on 2 squares
     #robot all the way on supporters
     settings(straight_acceleration=(100, 100))
     elevator(5)
@@ -170,7 +170,6 @@ def run_brush():
     #robot drives forward to do the Surface Brushing mission
     #postion: 2 thick line 1 squares
     go_fast()
-    drive.use_gyro(True)
     drive.straight(650)
     drive.straight(-610)
 
@@ -189,7 +188,6 @@ def run_silo():
 def run_ship():
     # jig starts 3+2.Remember to pull jig out before starting.
     tool_left.run_angle(100, 180)  # raise hammer
-    drive.use_gyro(True)
     drive.straight(830)
     drive.arc(-150,-70)
     drive.turn(-60)
