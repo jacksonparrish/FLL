@@ -50,9 +50,8 @@ def curved_arm(degrees_turn: float):
 #squares away from the curved line in the red zone facing mission one
 #missions 3 (minecart) & 13 (statue)
 def run_minecart():
-    settings(straight_acceleration=350)
     #gets to the minecart lift (AKA mission 3)
-    drive.straight(540)
+    drive.straight(525)
     #now in top left corner of board
 
     drive.arc(180, 90)
@@ -60,8 +59,7 @@ def run_minecart():
 
     #turning to face minecart
     drive.turn(-90)
-    drive.straight(18)
-
+    drive.straight(23)
     #raising minecart
     elevator(20)
     #lowering the handle so we dont knock the cave entrance down, then backing up to release handle
@@ -131,6 +129,7 @@ def run_market():
     drive.turn(-45)
     arm(forward=True)
     arm(forward=False)
+    return
 
     #moves to clear space without impacting other structures to push market lever
     drive.turn(40)
@@ -179,15 +178,15 @@ def run_silo():
     settings(straight_acceleration=(100, 700))
     drive.straight(370)
     for _ in range(3):
-        tool_left.run_angle(100, 180)
+        tool_left.run_angle(150, 175)
         tool_left.run_angle(5e6, -180)
     #want to get back to home fast as possible
     go_fast()
     drive.straight(-370)
 
 def run_ship():
-    # jig starts 3+2.Remember to pull jig out before starting.
-    tool_left.run_angle(100, 180)  # raise hammer
+    # right side of the robot is at on black line and 3 squares on the western border.
+    tool_left.run_angle(150, 175)  # raise hammer
     drive.straight(830)
     drive.arc(-150,-70)
     drive.turn(-60)
@@ -209,18 +208,16 @@ while True:
     if run == 1:
         run_minecart()
     elif run == 2:
-        run_sand()
-    elif run == 3:
         run_brush()
-    elif run == 4:
+    elif run == 3:
         run_ship()
-    elif run == 5:
+    elif run == 4:
         run_silo()
-    elif run == 6:
+    elif run == 5:
         run_millstone()
-    elif run == 7:
+    elif run == 6:
         run_market()
-    elif run == 8:
+    elif run == 7:
         run_EMERGENCY()
 
     run = run + 1
