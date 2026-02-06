@@ -70,7 +70,7 @@ def run_minecart():
     drive.turn(45)
     drive.arc(300, 45)
     drive.straight(-360)
-    drive.turn(42)
+    drive.turn(41)
     drive.straight(135)
 
     elevator(20)
@@ -129,13 +129,12 @@ def run_market():
     drive.turn(-45)
     arm(forward=True)
     arm(forward=False)
-    return
 
     #moves to clear space without impacting other structures to push market lever
     drive.turn(40)
     drive.straight(240)
     drive.turn(-180)
-    drive.straight(270)
+    drive.straight(272)
     drive.turn(45)
 
     #pushes market sliding lever and backs away
